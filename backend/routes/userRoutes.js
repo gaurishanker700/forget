@@ -1,0 +1,10 @@
+const express=require('express')
+const usercontroller=require('../controllers/usercontroller')
+const Auth=require('../middleware/auth')
+const router=express.Router()
+router.post("/register",usercontroller.Register)
+router.post("/login",usercontroller.Login)
+router.post("/forget", Auth,usercontroller.ForgetPassword)
+router.post("/reset",usercontroller.resetPassword)
+router.get("/logout",Auth,usercontroller.Logout)
+module.exports=router
